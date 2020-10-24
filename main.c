@@ -293,9 +293,10 @@ int main(int argc, char *argv[])
     err(EXIT_FAILURE, "Failed to daemonize");
   }
 
+  duration = multiplier;
+
   for(;;) {
     update_battery();
-    duration = multiplier;
 
     if (battery_discharging) { /* discharging */
       if (danger && battery_level <= danger && battery_state != STATE_DANGER) {
@@ -308,7 +309,6 @@ int main(int argc, char *argv[])
         notify(criticalmsg, NOTIFY_URGENCY_CRITICAL);
 
       } else if (warning && battery_level <= warning) {
-        duration = (battery_level - critical) * multiplier;
         if (battery_state != STATE_WARNING) {
           battery_state = STATE_WARNING;
           notify(warningmsg, NOTIFY_URGENCY_NORMAL);
@@ -316,7 +316,6 @@ int main(int argc, char *argv[])
 
       } else {
         battery_state = STATE_DISCHARGING;
-        duration = (battery_level - warning) * multiplier;
       }
 
     } else { /* charging */
