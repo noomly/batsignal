@@ -7,16 +7,20 @@ libnotify.
 
 Fork
 --------
-This fork use the default notification expiration timeout instead of never
-expiring. It also use the icon "battery-level-10-symbolic" in the notification.
+This fork has the following modifications:
+
+- use the default notification expiration timeout instead of never expiring.
+- use the icon "battery-level-10-symbolic" in the notification.
+- sleep a fixed amount of time instead of "fewer battery checks performed while
+  the battery is discharging and the level of charge is not near a warning
+  level."
+
 
 Features
 --------
 Customizable messages via libnotify on three configurable battery levels. A
 fourth configurable battery level will execute an arbitrary system command. In
-order to use as few system resources as possible, fewer battery checks are
-performed while the battery is discharging and the level of charge is not near a
-warning level.
+order to use as few system resources as possible.
 
 By default, batsignal will attempt to detect the correct battery to monitor.
 
