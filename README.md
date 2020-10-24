@@ -5,6 +5,11 @@ about various battery states. It is intended for minimal window managers, but
 can be used in any environment that supports desktop notifications via
 libnotify.
 
+Fork
+--------
+This fork use the default notification expiration timeout instead of never
+expiring. It also use the icon "battery-level-10-symbolic" in the notification.
+
 Features
 --------
 Customizable messages via libnotify on three configurable battery levels. A
